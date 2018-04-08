@@ -1,0 +1,15 @@
+version: '3'
+services:
+  apache:
+    build: apache/.
+    ports:
+     - "80:80"
+  dns:
+    build: dns/.
+    ports:
+     - "53:53"
+    depends_on:
+     - apache 
+    links:
+      - "apache:apache"
+     
