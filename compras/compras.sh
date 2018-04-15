@@ -32,15 +32,16 @@ echo -e "<html>
   </p>
   </body>
 </html>">/var/www/torreja.com/compras/index.html
-echo -e "\n
-<VirtualHost *:443>\n
-        ServerAdmin jl14001@ues.edu.sv\n
-        ServerName torreja.com\n
-        ServerAlias www.torreja.com/compras\n
-        DocumentRoot /var/www/torreja.com/compras\n
-        ErrorLog ${APACHE_LOG_DIR}/error.log\n
-        CustomLog ${APACHE_LOG_DIR}/access.log combined\n
-</VirtualHost>">/etc/apache2/sites-available/torreja.com-compras.conf
+echo -e "
+<VirtualHost _default_:443>
+        ServerAdmin jl14001@ues.edu.sv
+        ServerName torreja.com
+        ServerAlias www.torreja.com/compras
+        DocumentRoot /var/www/torreja.com/compras
+        SSLEngine On
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>">/etc/apache2/sites-available/torreja.com.conf
 a2ensite torreja.com.conf
 a2dissite default-ssl.conf 
 a2dissite 000-default.conf
