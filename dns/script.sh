@@ -1,7 +1,7 @@
 #! /bin/bash
 /etc/init.d/bind9 start
 TEST_VAR=$(hostname -I)
-PEPE=$(getent hosts apache | awk '{print $1}')
+PEPE=$(getent hosts proxy | awk '{print $1}')
 echo -e "\n 
 @           IN      SOA     dns1.torreja.com. henri.uesocc.edu.sv. ( \n
                         2018103        ; Serial\n 

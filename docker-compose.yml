@@ -1,15 +1,21 @@
 version: '3'
 services:
-  apache:
-    build: apache/.
+  proxy:
+    build: proxy/.
     ports:
      - "80:80"
+    links:
+     - "torreja:torreja"
   dns:
     build: dns/.
     ports:
      - "53:53"
     depends_on:
-     - apache 
+     - proxy 
     links:
-      - "apache:apache"
-     
+      - "proxy:proxy"
+  torreja:
+    build: torreja/.
+    
+   
+    

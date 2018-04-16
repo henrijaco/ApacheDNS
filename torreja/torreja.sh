@@ -22,14 +22,14 @@ I don't know why
 </p>
 </body>
 </html>">/var/www/torreja.com/public_html/index.html
-echo -e "\n
-<VirtualHost *:80>\n
-        ServerAdmin jl14001@ues.edu.sv\n
-        ServerName torreja.com\n
-        ServerAlias www.torreja.com\n
-        DocumentRoot /var/www/torreja.com/public_html\n
-        ErrorLog ${APACHE_LOG_DIR}/error.log\n
-        CustomLog ${APACHE_LOG_DIR}/access.log combined\n
+echo -e "
+<VirtualHost *:*>\n
+        ServerAdmin jl14001@ues.edu.sv
+        ServerName torreja.com
+        ServerAlias www.torreja.com
+        DocumentRoot /var/www/torreja.com/public_html
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>">/etc/apache2/sites-available/torreja.com.conf
 a2ensite torreja.com.conf
 a2dissite 000-default.conf
