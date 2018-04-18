@@ -3,19 +3,21 @@ services:
   proxy:
     build: proxy/.
     ports:
-     - "80:80"
+     - "80"
+     - "443"
     links:
      - "torreja:torreja"
   dns:
     build: dns/.
     ports:
-     - "53:53"
+     - "53"
     depends_on:
-     - proxy 
+     - proxy
     links:
       - "proxy:proxy"
   torreja:
     build: torreja/.
-    
-   
-    
+  compras:
+    build: compras/.
+    ports:
+      - "443"

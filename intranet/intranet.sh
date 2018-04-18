@@ -1,17 +1,18 @@
 #!/bin/bash
 /etc/init.d/apache2 start
 mkdir /var/www/torreja.com
-mkdir /var/www/torreja.com/compras
+mkdir /var/www/torreja.com/intranet
 echo -e "<html>
   <head>
     <title>Compras</title>
     <meta charset="UTF-8">
     <style>
-    h1 {color:red;
+    body { background-color: #f0f0f0}
+    h1 {color:#0d0d0d;
         text-align: center;
         font-family: "Montserrat", sans-serif;
         }
-    p {color:blue;
+    p {color:black;
        text-align: center;
        font-family: "Montserrat", sans-serif;
        font-size: 20px;
@@ -19,30 +20,25 @@ echo -e "<html>
     </style>
   </head>
   <body>
-  <h1>Proximamente podras comprar cosas aqui</h1>
+  <h1>Intranet</h1>
   <p>
-  Zafo que el obispo ponga su opinión<br>
-  Mega zafo la mochiza zafo-zafo calderón<br>
-  Oiga, ya salió mi disco vaya why comprelo pirata<br>
-  Ayude a la disquera a que nos meta más la riata.<br>
-  Zafo el puto tráfico, zafo el tira grosero<br>
-  Why zafo enseñarle a manejar al del pesero<br>
-  Si vienes por acá cuidado cuando salgas<br>
-  Porque este país se maneja con las nalgas.
+  Si esta cosa sirve
+  deberíamos tener buena nota,
+  esperemos que así sea...
   </p>
   </body>
-</html>">/var/www/torreja.com/compras/index.html
+</html>">/var/www/torreja.com/intranet/index.html
 echo -e "
 <IfModule mod_ssl.c>
         <VirtualHost _default_:443>
                 ServerAdmin jl14001@ues.edu.sv
                 ServerName www.torreja.com
-                ServerAlias www.torreja.com/compras
-                DocumentRoot /var/www/torreja.com/compras
+                ServerAlias www.torreja.com/intranet
+                DocumentRoot /var/www/torreja.com/intranet
                 SSLEngine on
                 SSLProxyEngine on
-                SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
-                SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+                SSLCertificateFile /etc/ssl/certs/newcert.pem
+                SSLCertificateKeyFile /etc/ssl/private/newkey.pem
                 ErrorLog ${APACHE_LOG_DIR}/error.log
                 CustomLog ${APACHE_LOG_DIR}/ssl_access.log combined
         </VirtualHost>

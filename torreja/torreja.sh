@@ -23,7 +23,7 @@ I don't know why
 </body>
 </html>">/var/www/torreja.com/public_html/index.html
 echo -e "
-<VirtualHost *:*>\n
+<VirtualHost *:*>
         ServerAdmin jl14001@ues.edu.sv
         ServerName torreja.com
         ServerAlias www.torreja.com
@@ -33,8 +33,6 @@ echo -e "
 </VirtualHost>">/etc/apache2/sites-available/torreja.com.conf
 a2ensite torreja.com.conf
 a2dissite 000-default.conf
-/etc/init.d/apache2 reload
+/etc/init.d/apache2 restart
 hostname -I
 tcpdump
-
-
